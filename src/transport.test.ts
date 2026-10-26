@@ -605,7 +605,7 @@ describe("Transport Integration Tests", () => {
           const upstreamBody = JSON.parse(
             (global.fetch as ReturnType<typeof vi.fn>).mock.calls[0][1].body as string
           );
-          expect(upstreamBody.preset).toBe(preset);
+          expect(upstreamBody.effort).toBe(preset);
           expect(
             (global.fetch as ReturnType<typeof vi.fn>).mock.calls[0][0]
           ).toBe("https://api.perplexity.ai/v1/agent");

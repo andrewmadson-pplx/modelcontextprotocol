@@ -132,7 +132,7 @@ describe("Perplexity MCP Server", () => {
             "X-Pplx-Integration": "perplexity-mcp/1.4.0",
           },
           body: JSON.stringify({
-            preset: "fast",
+            effort: "fast",
             input: [{ type: "message", role: "user", content: "test question" }],
             stream: true,
           }),
@@ -238,7 +238,7 @@ describe("Perplexity MCP Server", () => {
         (global.fetch as ReturnType<typeof vi.fn>).mock.calls[0][1].body as string
       );
       expect(body.tools).toBeUndefined();
-      expect(body.preset).toBe("medium");
+      expect(body.effort).toBe("medium");
     });
 
     it("should emit progress updates from reasoning events", async () => {

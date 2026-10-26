@@ -22,7 +22,7 @@ const PERPLEXITY_API_KEY = process.env.PERPLEXITY_API_KEY;
 const PERPLEXITY_BASE_URL = process.env.PERPLEXITY_BASE_URL || "https://api.perplexity.ai";
 const VERSION = "1.4.0";
 
-// Agent API presets backing each tool: https://docs.perplexity.ai/docs/agent-api/presets
+// Agent API effort levels backing each tool: https://docs.perplexity.ai/docs/agent-api/effort
 export const ASK_PRESET = "fast";
 export const REASON_PRESET = "medium";
 export const RESEARCH_PRESET = "high";
@@ -423,7 +423,7 @@ export async function performAgentResponse(
   const webSearchTool = buildWebSearchTool(options);
 
   const body: Record<string, unknown> = {
-    preset,
+    effort: preset,
     input: messages.map((message) => ({
       type: "message",
       role: message.role,
